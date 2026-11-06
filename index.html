@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#641b2b">
+    <meta name="description" content="ISKOLAR LINK brings scholarship applications, updates, and payout schedules together.">
+    <title>ISKOLAR LINK | Scholarship Management</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <main id="app" class="app-shell">
+      <section id="login-view" class="login-view" aria-labelledby="login-title">
+        <div class="login-intro">
+          <a class="brand brand-light" href="#" aria-label="ISKOLAR LINK home">
+            <img class="brand-seal" src="assets/msu-seal.png" alt="Marinduque State University seal" width="44" height="44">
+            <span class="brand-name">ISKOLAR<span>LINK</span></span>
+          </a>
+          <div class="intro-copy">
+            <p class="eyebrow">YOUR FUTURE, WITHIN REACH</p>
+            <h1>Big dreams deserve<br><span>bright beginnings.</span></h1>
+            <p>Find scholarships, submit requirements, and follow every update—all in one place.</p>
+          </div>
+          <div class="login-art" aria-hidden="true">
+            <div class="art-sun"></div><div class="art-book">✦</div>
+            <div class="art-caption">A little support.<br>A whole lot of possibility.</div>
+          </div>
+          <p class="login-footer">A scholarship journey, made simpler.</p>
+        </div>
+        <div class="login-panel">
+          <div class="login-form-wrap">
+            <p class="eyebrow">WELCOME TO ISKOLAR LINK</p>
+            <h2 id="login-title">Sign in to your account</h2>
+            <p class="muted">Use your school account to continue.</p>
+            <form id="login-form">
+              <fieldset class="role-picker">
+                <legend>Choose your account type</legend>
+                <label class="role-option">
+                  <input type="radio" name="role" value="student" checked>
+                  <span aria-hidden="true">♙</span><span>Student</span>
+                </label>
+                <label class="role-option">
+                  <input type="radio" name="role" value="faculty">
+                  <span aria-hidden="true">▤</span><span>Faculty</span>
+                </label>
+              </fieldset>
+              <label class="field-label" for="login-email">School email or username</label>
+              <input class="text-input" id="login-email" name="username" type="text" autocomplete="username" placeholder="you@school.edu.ph" required>
+              <label class="field-label" for="login-password">Password</label>
+              <div class="password-wrap">
+                <input class="text-input" id="login-password" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" required>
+                <button class="password-toggle" type="button" aria-label="Show password" aria-pressed="false">Show</button>
+              </div>
+              <p id="login-error" class="form-error" role="alert" hidden></p>
+              <button class="button button-primary button-wide" type="submit">Sign in <span aria-hidden="true">→</span></button>
+            </form>
+            <div class="demo-hint"><span aria-hidden="true">✦</span> Demo mode: enter any username and password to explore.</div>
+            <p class="login-help">Need help accessing your account? <a href="mailto:scholarships@iskolarlink.edu.ph">Contact your coordinator</a>.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="dashboard-view" class="dashboard-view" hidden>
+        <aside id="sidebar" class="sidebar" aria-label="Main navigation">
+          <a class="brand" href="#" data-nav="overview" aria-label="ISKOLAR LINK overview">
+            <img class="brand-seal" src="assets/msu-seal.png" alt="Marinduque State University seal" width="42" height="42">
+            <span class="brand-name">ISKOLAR<span>LINK</span></span>
+          </a>
+          <div class="sidebar-label">MENU</div>
+          <nav id="main-nav" class="main-nav" aria-label="Dashboard">
+            <button class="nav-link active" type="button" data-nav="overview"><span aria-hidden="true">⌂</span> Overview</button>
+            <button class="nav-link" type="button" data-nav="scholarships"><span aria-hidden="true">▤</span> Scholarships</button>
+            <button class="nav-link" type="button" data-nav="applications"><span aria-hidden="true">▣</span> My applications <span class="nav-count" id="application-count">0</span></button>
+            <button class="nav-link student-only" type="button" data-nav="account" hidden><span aria-hidden="true">♙</span> My student account</button>
+            <button class="nav-link" type="button" data-nav="payouts"><span aria-hidden="true">₱</span> Payout schedule</button>
+            <button class="nav-link" type="button" data-nav="announcements"><span aria-hidden="true">◉</span> Announcements <span class="nav-dot" aria-label="New announcement"></span></button>
+            <button class="nav-link faculty-only" type="button" data-nav="reviews" hidden><span aria-hidden="true">☑</span> Review applications <span class="nav-count" id="review-count">0</span></button>
+          </nav>
+          <div class="sidebar-bottom">
+            <div class="support-card"><span class="support-icon" aria-hidden="true">?</span><strong>Need a hand?</strong><p>Your scholarship coordinator is here to help.</p><a href="mailto:scholarships@iskolarlink.edu.ph">Get support <span aria-hidden="true">↗</span></a></div>
+            <button class="logout-button" id="logout-button" type="button"><span aria-hidden="true">↪</span> Sign out</button>
+          </div>
+        </aside>
+
+        <div class="main-column">
+          <header class="topbar">
+            <button id="menu-toggle" class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="sidebar"><span></span><span></span><span></span></button>
+            <div class="breadcrumb"><span>Workspace</span><span aria-hidden="true">/</span><strong id="breadcrumb-current">Overview</strong></div>
+            <div class="topbar-actions">
+              <button id="notification-button" class="icon-button notification-button" type="button" aria-label="Notifications, 2 unread" aria-expanded="false"><span aria-hidden="true">♧</span><i></i></button>
+              <div id="faculty-user-chip" class="user-chip faculty-only">
+                <div class="avatar" id="user-avatar" aria-hidden="true">JD</div>
+                <div class="user-chip-copy"><strong id="user-name">Juan Dela Cruz</strong><span id="user-role">Student account</span></div>
+                <span class="user-chevron" aria-hidden="true">⌄</span>
+              </div>
+              <button id="student-account-button" class="user-chip user-chip-button student-only" type="button" data-nav="account" aria-label="View your student account" hidden>
+                <div class="avatar" id="student-user-avatar" aria-hidden="true">JD</div>
+                <span class="user-chip-copy"><strong id="student-user-name">Student</strong><span>Student account</span></span>
+                <span class="user-chevron" aria-hidden="true">⌄</span>
+              </button>
+            </div>
+            <div id="notification-popover" class="notification-popover" hidden>
+              <div class="popover-heading"><strong>Notifications</strong><span class="unread-label">2 new</span></div>
+              <div id="notification-list"></div>
+            </div>
+          </header>
+
+          <section id="main-content" class="page-content" tabindex="-1" aria-label="Dashboard content">
+            <div id="page-container"></div>
+          </section>
+          <footer class="app-footer"><span>ISKOLAR LINK <span aria-hidden="true">·</span> Your scholarship journey, connected.</span><span>Need help? <a href="mailto:scholarships@iskolarlink.edu.ph">Contact support</a></span></footer>
+        </div>
+        <div id="mobile-scrim" class="mobile-scrim" hidden></div>
+      </section>
+    </main>
+    <div id="modal-root"></div>
+    <div id="toast-region" class="toast-region" aria-live="polite" aria-atomic="true"></div>
+  </body>
+</html>
